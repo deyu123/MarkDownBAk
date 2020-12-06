@@ -1,0 +1,80 @@
+ApplicationMaster
+
+    -- main
+    
+        // 封装参数
+        // --class
+        -- ApplicationMasterArguments
+        -- new ApplicationMaster
+        -- run
+        
+            // 【cluster】
+            -- runDriver
+            
+                // 启动用户的应用
+                -- userClassThread = startUserApplication()
+                
+                    // 反射加载类，获取类的main方法
+                    // --class SparkPI(WordCount)
+                    -- userClassLoader.loadClass(args.userClass).getMethod("main", classOf[Array[String]])
+                    
+                    -- userThread = new Thread
+                    
+                    -- thread.setName(【Driver】)
+                    // 在执行main方法
+                    -- mainMethod.invoke
+                
+                // 线程阻塞，等待对象（SparkContext）的返回
+                -- ThreadUtils.awaitResult
+                
+                // 注册AM
+                -- registerAM
+                
+                -- createAllocator
+                
+                    -- client.createAllocator
+                    
+                    // 分配资源
+                    -- allocator.allocateResources()
+                    
+                        // 获取可用的资源列表
+                        -- allocateResponse.getAllocatedContainers()
+                        // 处理可用的资源
+                        -- handleAllocatedContainers
+                        
+                            // 匹配后的资源可以运行
+                            -- runAllocatedContainers
+                            
+                                -- container => ExecutorRunnable
+                                
+                                    -- nmClient
+                                    // 启动容器
+                                    -- startContainer
+                                    
+                               -- run 
+                               
+                                    // 封装指令
+                                    // command = bin/java org.apache.spark.executor.CoarseGrainedExecutorBackend
+                                    -- prepareCommand
+                                    
+                                    // 让NM启动容器, 启动Executor
+                                    -- nmClient.startContainer(container.get, ctx)
+            
+            // 【client】
+            -- runExecutorLauncher
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            

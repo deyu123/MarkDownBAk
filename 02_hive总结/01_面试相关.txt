@@ -1,0 +1,17 @@
+1）SQL的书写顺序
+SELECT- DISTINCT- FROM- JOIN ON- WHERE- GROUP BY- HIVING- ORDER BY- LIMIT
+2）真正执行的顺序：
+随着Mysql版本的更新换代，其优化器也在不断的升级，优化器会分析不同执行顺序产生的性能消耗不同而动态调整执行顺序。下面是经常出现的查询顺序：
+FROM- ON- JOIN- WHERE- GROUP BY- HAVING- SELECT- DISTINCT- ORDER BY- LIMIT
+3）外连接
+外连接确定主从表:  左外连左主右从， 右外连右主左从！
+外连接的结果集:  主表取所有，从表取匹配. 主表与从表未匹配的数据通过null来补全.
+
+***
+
+```
+--myIsam 和 Innodb
+
+行表锁，索引( B + tree )，事务，外键，缓存
+```
+
