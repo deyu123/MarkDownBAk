@@ -1,7 +1,5 @@
 # Impala
 
-***
-
 
 
 ### 1. Impala 概念
