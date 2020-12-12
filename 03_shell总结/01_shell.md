@@ -552,5 +552,32 @@ deyu-deMacBook-Pro:MarkDown deyu$ grep -r "Hbase" ./  | cut -d ":" -f 1
 .//14_面试相关/面试.md
 .//14_面试相关/面试准备.md
 .//14_面试相关/面试准备.md
+
+-- shell 写一个脚本，对文本无序文件进行排序
+[root@CentOS6-2 ~]# cat test.txt
+9
+8
+7
+6
+5
+4
+3
+2
+10
+1
+
+[root@CentOS6-2 ~]# sort -n test.txt| awk '${a+=$0;print $0} END {'sum='$0}'
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+SUM=55
+
 ```
 
